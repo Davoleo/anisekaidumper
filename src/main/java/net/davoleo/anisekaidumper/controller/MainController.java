@@ -2,7 +2,7 @@ package net.davoleo.anisekaidumper.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import net.davoleo.anisekaidumper.view.EnumScenes;
+import net.davoleo.anisekaidumper.view.EnumScene;
 import net.davoleo.anisekaidumper.view.SceneDirector;
 
 public class MainController {
@@ -17,18 +17,18 @@ public class MainController {
     @FXML
     private void initialize()
     {
-        SceneDirector.getInstance().bindSearchState(searchSceneButton.disableProperty(), EnumScenes.SEARCH);
-        SceneDirector.getInstance().bindSearchState(downloadSceneButton.disableProperty(), EnumScenes.DOWNLOAD);
+        SceneDirector.getInstance().bindSearchState(searchSceneButton.disableProperty(), EnumScene.SEARCH);
+        SceneDirector.getInstance().bindSearchState(downloadSceneButton.disableProperty(), EnumScene.DOWNLOAD);
     }
 
 
     public void onSearchSceneClicked()
     {
-        SceneDirector.getInstance().switchScene(EnumScenes.SEARCH);
+        SceneDirector.getInstance().switchScene(EnumScene.SEARCH);
     }
 
     public void onDownloadSceneClicked()
     {
-        SceneDirector.getInstance().switchScene(EnumScenes.DOWNLOAD);
+        SceneDirector.getInstance().switchScene(EnumScene.DOWNLOAD);
     }
 }

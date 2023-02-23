@@ -1,3 +1,6 @@
+GET https://www.animeworld.tv/api/tooltip/1297
+
+###
 POST https://www.animeworld.tv/api/search/v2?keyword=world
 Content-Type: application/x-www-form-urlencoded
 Cookie: _ga=GA1.2.1076394940.1669674689; sessionId=s%3A6seFJkIXRa-Rw3bf3ee1gAytaO0SZiAU.SOdjiXbialwu1%2Bxsu3gISvvE473AF2%2F7DIzx66Yi%2Bj8; expandedPlayer=false; ppu_main_e0be0a55294349662de08a87a6bf6147=1; _gid=GA1.2.1768200378.1677146378; ppu_sub_e0be0a55294349662de08a87a6bf6147=3; _gat=1; _gat_gtag_UA_93961448_1=1

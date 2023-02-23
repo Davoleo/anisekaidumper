@@ -1,11 +1,13 @@
 package net.davoleo.anisekaidumper.view;
 
-import javafx.beans.property.*;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import net.davoleo.anisekaidumper.MainApplication;
 
@@ -15,8 +17,9 @@ public class SceneDirector {
 
     private static volatile SceneDirector instance;
 
-    private final ObjectProperty<EnumScenes> activeScene = new SimpleObjectProperty<>(EnumScenes.SEARCH);
-    private Pane container;
+    private final ObjectProperty<EnumScene> activeScene = new SimpleObjectProperty<>(EnumScene.SEARCH);
+
+    BorderPane rootPane;
     private Node searchNode;
     private Node downloadNode;
 
@@ -46,15 +49,13 @@ public class SceneDirector {
 
     public void init(Stage stage) {
 
-        Parent mainNode = loadRootFromFXML("main-scene.fxml");
-        Scene scene = new Scene(mainNode);
+        rootPane = loadRootFromFXML("main-scene.fxml");
+        Scene scene = new Scene(rootPane);
 
-        searchNode = loadRootFromFXML(EnumScenes.SEARCH.getSceneFilename());
-        downloadNode = loadRootFromFXML(EnumScenes.DOWNLOAD.getSceneFilename());
+        searchNode = loadRootFromFXML(EnumScene.SEARCH.getSceneFilename());
+        downloadNode = loadRootFromFXML(EnumScene.DOWNLOAD.getSceneFilename());
 
-        container = (Pane) scene.lookup("#container");
-        container.getChildren().add(searchNode);
-
+        rootPane.setCenter(searchNode);
 
         stage.setTitle("AniSekaiDumper");
         stage.setScene(scene);
@@ -62,13 +63,13 @@ public class SceneDirector {
 
     }
 
-    public void switchScene(EnumScenes scene) {
-        container.getChildren().set(0, scene == EnumScenes.SEARCH ? searchNode : downloadNode);
+    public void switchScene(EnumScene scene) {
+        rootPane.setCenter(scene == EnumScene.SEARCH ? searchNode : downloadNode);
         activeScene.set(scene);
     }
 
 
-    public void bindSearchState(BooleanProperty property, EnumScenes scene) {
+    public void bindSearchState(BooleanProperty property, EnumScene scene) {
         property.bind(activeScene.isEqualTo(scene));
     }
 

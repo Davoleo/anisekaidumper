@@ -4,25 +4,31 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.davoleo.anisekaidumper.controller.MainController">
-  <MenuBar>
-    <Menu mnemonicParsing="false" text="File">
-      <MenuItem mnemonicParsing="false" text="Preferences" />
-      <MenuItem mnemonicParsing="false" text="Exit" />
-    </Menu>
-    <Menu mnemonicParsing="false" text="Help">
-      <MenuItem mnemonicParsing="false" text="About" />
-    </Menu>
-  </MenuBar>
-   <Pane fx:id="container" />
-   <HBox alignment="CENTER">
-      <padding>
-         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-      </padding>
-       <Region HBox.hgrow="ALWAYS" />
-       <Button fx:id="searchSceneButton" mnemonicParsing="false" onAction="#onSearchSceneClicked" text="Search" />
-       <Region HBox.hgrow="ALWAYS" />
-       <Button fx:id="downloadSceneButton" mnemonicParsing="false" onAction="#onDownloadSceneClicked" text="Download" />
-       <Region HBox.hgrow="ALWAYS" />
-   </HBox>
-</VBox>
+<BorderPane maxHeight="1.7976931348623157E308" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.davoleo.anisekaidumper.controller.MainController">
+  <top>
+      <MenuBar>
+          <Menu mnemonicParsing="false" text="File">
+              <MenuItem mnemonicParsing="false" text="Preferences" />
+              <MenuItem mnemonicParsing="false" text="Exit" />
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+              <MenuItem mnemonicParsing="false" text="About" />
+          </Menu>
+      </MenuBar>
+  </top>
+   <bottom>
+       <HBox alignment="CENTER">
+           <padding>
+               <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+           </padding>
+           <Region HBox.hgrow="ALWAYS" />
+           <Button fx:id="searchSceneButton" mnemonicParsing="false" onAction="#onSearchSceneClicked" text="Search" />
+           <Region HBox.hgrow="ALWAYS" />
+           <Button fx:id="downloadSceneButton" mnemonicParsing="false" onAction="#onDownloadSceneClicked" text="Download" />
+           <Region HBox.hgrow="ALWAYS" />
+       </HBox>
+   </bottom>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
