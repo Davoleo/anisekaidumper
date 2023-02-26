@@ -33,6 +33,7 @@ public class SearchController {
             return;
 
 
+        searchResultList.getChildren().clear();
         SearchPageParser searchPageParser = new SearchPageParser(searchValue);
         List<AnimeItemModel> animes = searchPageParser.requestAnimePageUrl();
         animes.forEach(anime -> searchResultList.getChildren().add(new AnimeCard(anime)));
