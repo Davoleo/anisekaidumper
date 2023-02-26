@@ -1,5 +1,6 @@
 package net.davoleo.anisekaidumper.scraping;
 
+import net.davoleo.anisekaidumper.model.AnimeDetails;
 import org.jsoup.nodes.Document;
 
 import java.util.regex.Pattern;
@@ -23,6 +24,7 @@ public class AnimePageParser extends PageParser<String> {
         return PATTERN;
     }
 
+    private static final String animeEndpoint = "https://anilist.co/anime/";
     @Override
     protected String parse(Document document) {
 

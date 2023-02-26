@@ -5,7 +5,6 @@ module net.davoleo.anisekaidumper {
     requires org.controlsfx.controls;
     requires org.kordamp.ikonli.javafx;
 
-
     requires org.jsoup;
 
     opens net.davoleo.anisekaidumper to javafx.fxml;
