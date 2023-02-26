@@ -1,10 +1,11 @@
 package net.davoleo.anisekaidumper.scraping;
 
+import net.davoleo.anisekaidumper.model.AnimeDetails;
 import org.jsoup.nodes.Document;
 
 import java.util.regex.Pattern;
 
-public class AnimePageParser extends PageParser<String> {
+public class AnimePageParser extends PageParser<AnimeDetails> {
 
     // /.+? -- Lazy + quantifier: [n >= 1 characters, taken as few as possible times, allows the last part of the filter to take place]
     // * /\\S{6} -- 6 non-whitespace characters
@@ -23,9 +24,14 @@ public class AnimePageParser extends PageParser<String> {
         return PATTERN;
     }
 
+    private static final String animeEndpoint = "https://anilist.co/anime/";
     @Override
-    protected String parse(Document document) {
+    protected AnimeDetails parse(Document document) {
 
-        return "bobobob";
+        document.select("#alternativeDownloadLink").attr("href");
+
+        int anilistId = Integer.parseInt(document.select("#anilist-button").attr("href").substring(animeEndpoint.length()));
+
+        return null;
     }
 }
