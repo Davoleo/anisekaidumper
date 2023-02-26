@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import net.davoleo.anisekaidumper.MainApplication;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class SceneDirector {
 
@@ -38,7 +39,9 @@ public class SceneDirector {
 
     private <T extends Parent> T loadRootFromFXML(String resourceName) {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(resourceName));
+
+        assert MainApplication.class.getResource("fxml/" + resourceName) != null;
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("fxml/" + resourceName));
         try {
             return fxmlLoader.load();
         } catch (IOException e) {
@@ -52,12 +55,21 @@ public class SceneDirector {
         rootPane = loadRootFromFXML("main-scene.fxml");
         Scene scene = new Scene(rootPane);
 
+        scene.getStylesheets().add(
+                Objects.requireNonNull(MainApplication.class.getResource("css/base_style.css"))
+                        .toExternalForm()
+        );
+
         searchNode = loadRootFromFXML(EnumScene.SEARCH.getSceneFilename());
         downloadNode = loadRootFromFXML(EnumScene.DOWNLOAD.getSceneFilename());
 
         rootPane.setCenter(searchNode);
 
         stage.setTitle("AniSekaiDumper");
+        stage.setResizable(false);
+        stage.setWidth(650);
+        stage.setHeight(600);
+
         stage.setScene(scene);
         stage.show();
 

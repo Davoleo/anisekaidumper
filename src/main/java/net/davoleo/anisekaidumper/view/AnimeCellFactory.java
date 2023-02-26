@@ -1,6 +1,5 @@
 package net.davoleo.anisekaidumper.view;
 
-import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;

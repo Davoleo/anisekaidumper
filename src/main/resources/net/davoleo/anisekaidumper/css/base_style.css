@@ -1,0 +1,7 @@
+.card:focused {
+    -fx-background-color: #0096c9;
+}
+
+.card>.label {
+    -fx-font-weight: bold;
+}
