@@ -1,6 +1,6 @@
 package net.davoleo.anisekaidumper.scraping;
 
-import net.davoleo.anisekaidumper.model.AnimeItemModel;
+import net.davoleo.anisekaidumper.model.AnimeSearchItem;
 import net.davoleo.anisekaidumper.model.EnumTag;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -9,7 +9,7 @@ import org.jsoup.select.Elements;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SearchPageParser extends PageParser<List<AnimeItemModel>> {
+public class SearchPageParser extends PageParser<List<AnimeSearchItem>> {
 
     public static final String searchEndpoint = "";
 
@@ -18,21 +18,21 @@ public class SearchPageParser extends PageParser<List<AnimeItemModel>> {
     }
 
     @Override
-    public List<AnimeItemModel> parse(Document document) {
+    public List<AnimeSearchItem> parse(Document document) {
         Elements cards = document.select(".film-list .inner");
 
-        List<AnimeItemModel> searchAnime = new LinkedList<>();
+        List<AnimeSearchItem> searchAnime = new LinkedList<>();
         cards.forEach(card -> {
             Element name = card.selectFirst(".name");
             Element img = card.selectFirst("img");
 
-            AnimeItemModel animeItemModel = new AnimeItemModel(
+            AnimeSearchItem animeSearchItem = new AnimeSearchItem(
                     name.text(),
                     name.attr("href"),
                     img.attr("src"),
                     EnumTag.tagListFromElements(card.select(".status>*"))
             );
-            searchAnime.add(animeItemModel);
+            searchAnime.add(animeSearchItem);
         });
         return searchAnime;
     }

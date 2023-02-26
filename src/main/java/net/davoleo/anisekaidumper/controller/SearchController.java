@@ -3,7 +3,7 @@ package net.davoleo.anisekaidumper.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
-import net.davoleo.anisekaidumper.model.AnimeItemModel;
+import net.davoleo.anisekaidumper.model.AnimeSearchItem;
 import net.davoleo.anisekaidumper.scraping.SearchPageParser;
 import net.davoleo.anisekaidumper.view.AnimeCard;
 
@@ -35,7 +35,7 @@ public class SearchController {
 
         searchResultList.getChildren().clear();
         SearchPageParser searchPageParser = new SearchPageParser(searchValue);
-        List<AnimeItemModel> animes = searchPageParser.requestAnimePageUrl();
+        List<AnimeSearchItem> animes = searchPageParser.requestAnimePageUrl();
         animes.forEach(anime -> searchResultList.getChildren().add(new AnimeCard(anime)));
     }
 }

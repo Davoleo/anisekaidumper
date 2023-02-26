@@ -25,6 +25,7 @@ public class AnimePageParser extends PageParser<String> {
 
     @Override
     protected String parse(Document document) {
+
         return "bobobob";
     }
 }

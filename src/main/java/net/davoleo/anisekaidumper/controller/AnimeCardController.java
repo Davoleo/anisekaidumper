@@ -3,15 +3,15 @@ package net.davoleo.anisekaidumper.controller;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import net.davoleo.anisekaidumper.model.AnimeItemModel;
+import net.davoleo.anisekaidumper.model.AnimeSearchItem;
 import net.davoleo.anisekaidumper.view.AnimeCard;
 
 public class AnimeCardController implements EventHandler<MouseEvent> {
 
     private final AnimeCard card;
-    private final AnimeItemModel anime;
+    private final AnimeSearchItem anime;
 
-    public AnimeCardController(AnimeCard card, AnimeItemModel anime) {
+    public AnimeCardController(AnimeCard card, AnimeSearchItem anime) {
         this.card = card;
         this.anime = anime;
     }

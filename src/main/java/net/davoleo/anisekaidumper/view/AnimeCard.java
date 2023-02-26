@@ -11,14 +11,14 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import net.davoleo.anisekaidumper.controller.AnimeCardController;
-import net.davoleo.anisekaidumper.model.AnimeItemModel;
+import net.davoleo.anisekaidumper.model.AnimeSearchItem;
 
 public class AnimeCard extends VBox {
 
     private static final int CARD_WIDTH = 150;
     private static final Insets PADDING = new Insets(20);
 
-    public AnimeCard(AnimeItemModel model) {
+    public AnimeCard(AnimeSearchItem model) {
 
         this.getStyleClass().add("card");
         this.setAlignment(Pos.TOP_CENTER);

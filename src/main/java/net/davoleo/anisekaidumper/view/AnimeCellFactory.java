@@ -8,14 +8,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
-import net.davoleo.anisekaidumper.model.AnimeItemModel;
+import net.davoleo.anisekaidumper.model.AnimeSearchItem;
 
-public class AnimeCellFactory implements Callback<ListView<AnimeItemModel>, ListCell<AnimeItemModel>> {
+public class AnimeCellFactory implements Callback<ListView<AnimeSearchItem>, ListCell<AnimeSearchItem>> {
     @Override
-    public ListCell<AnimeItemModel> call(ListView<AnimeItemModel> param) {
+    public ListCell<AnimeSearchItem> call(ListView<AnimeSearchItem> param) {
         return new ListCell<>() {
             @Override
-            protected void updateItem(AnimeItemModel item, boolean empty) {
+            protected void updateItem(AnimeSearchItem item, boolean empty) {
                 super.updateItem(item, empty);
                 if (empty) {
                     setText(null);
