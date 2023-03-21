@@ -35,7 +35,15 @@ public class SearchController {
 
         searchResultList.getChildren().clear();
         SearchPageParser searchPageParser = new SearchPageParser(searchValue);
-        List<AnimeSearchItem> animes = searchPageParser.requestAnimePageUrl();
-        animes.forEach(anime -> searchResultList.getChildren().add(new AnimeCard(anime)));
+
+        Thread thread = new Thread(searchPageParser);
+        thread.start();
+
+        searchPageParser.setOnSucceeded(result -> {
+            List<AnimeSearchItem> animes = searchPageParser.getValue();
+            animes.forEach(anime -> searchResultList.getChildren().add(new AnimeCard(anime)));
+        });
+
+
     }
 }
